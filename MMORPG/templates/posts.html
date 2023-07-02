@@ -1,0 +1,32 @@
+{% extends 'flatpages/default.html' %}
+{% load static %}
+
+{% block content %}
+    {% for post in posts %}
+
+        <div class="post__item">
+
+          <div class="post__content">
+
+            <div class="post__header">
+                <div class="post__category">
+                    <div class="post__category--logo">
+                        <span>{{ post.category.short_name_category }}</span>
+                    </div>
+                    <span class="post__category--name">{{ post.category.name_category }}</span>
+                </div>
+
+            </div>
+
+            <div clas="post__body">
+                <h5 class="post__title">{{ post.title }}</h5>
+                <p class="post__text">{{ post.text}}</p>
+                <a href="{% url 'post_detail' post.id %}" class="btn btn-primary">Подробнее</a>
+            </div>
+
+
+          </div>
+
+        </div>
+    {% endfor %}
+{% endblock content %}
